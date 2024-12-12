@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools", "wheel", "py2app"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ValveControl_2000"
+version = "0.1.0"
+description = "Irrigation System Control Application"
+authors = [
+    {name = "Balazs Gyarmati", email = "gyarmati.balazs@gyb.hu"}
+]
+dependencies = []
+
+[tool.py2app]
+script = "main.py"
+name = "ValveControl 2000"
+iconfile = "assets/icon.icns"
+
+[tool.py2app.bundle.plist]
+CFBundleName = "ValveControl 2000"
+CFBundleDisplayName = "ValveControl 2000"
+CFBundleGetInfoString = "Irrigation System Control"
+CFBundleIdentifier = "hu.gyb.valvecontrol2000"
+CFBundleVersion = "0.1.0"
+CFBundleShortVersionString = "0.1.0"
+NSHumanReadableCopyright = "Copyright © 2024 Balazs Gyarmati"
+CFBundleIconFile = "icon.icns"
+
+[tool.py2app.options]
+argv_emulation = false
+site_packages = true
+includes = [
+    "tkinter",
+    "tkinter.ttk",
+    "_tkinter",
+    "utils",
+    "constants",
+    "configuration",
+    "zone_control"
+]
+packages = []
+resources = ["assets", "locales"]
+exclude = ["pytest", "setuptools", "pip", "wheel"]

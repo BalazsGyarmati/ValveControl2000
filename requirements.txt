@@ -1,0 +1,3 @@
+setuptools==70.3.0 # because of a known error in versions >=71.0.2 https://github.com/ronaldoussoren/py2app/issues/531
+py2app
+paho-mqtt>=2.0.0
