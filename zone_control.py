@@ -627,10 +627,15 @@ class ZoneControlFrame(ttk.Frame):
 
     def check_master_dependencies(self, master_id):
         """Check if any dependent zones are still active for a given master zone"""
+        current_active_zones = []
         for i, zone in enumerate(self.config.zone_config.zones):
             if zone['master_zone'] == master_id and self.active_zones[i]['active']:
-                return True
-        return False
+                current_active_zones.append(zone)
+
+        if len(current_active_zones) > 0:
+            return True
+        else:
+            return False
 
     def should_deactivate_master(self, master_id):
         """Check if a master should be deactivated"""
